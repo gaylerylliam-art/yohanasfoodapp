@@ -10,7 +10,11 @@ const images = {
   fries: "https://images.unsplash.com/photo-1576107232684-1279f390859f?auto=format&fit=crop&fm=jpg&q=72&w=900",
   pasta: "https://images.unsplash.com/photo-1612874742237-6526221588e3?auto=format&fit=crop&fm=jpg&q=72&w=900",
   pack: "https://images.unsplash.com/photo-1606923829579-0cb981a83e2e?auto=format&fit=crop&fm=jpg&q=72&w=900",
+  beefBulgogi: "assets/menu/beef-bulgogi.jpeg",
+  chicksilog: "assets/menu/chicksilog.jpeg",
 };
+
+const yohanaPhotoKeys = new Set(["beefBulgogi", "chicksilog"]);
 
 const menu = [
   ["Silog Meals", "Longsilog", 99, "Sweet homemade longganisa, garlic rice and sunny egg.", "silog"],
@@ -21,9 +25,9 @@ const menu = [
   ["Silog Meals", "Bangsilog", 99, "Crispy boneless bangus, garlic rice and egg.", "silog"],
   ["Silog Meals", "Hamsilog", 99, "Savoury ham, garlic rice and egg.", "silog"],
   ["Silog Meals", "Spamsilog", 99, "Pan-fried Spam, garlic rice and egg.", "silog"],
-  ["Silog Meals", "Chicksilog", 120, "Golden fried chicken, garlic rice and egg.", "rice"],
+  ["Silog Meals", "Chicksilog", 120, "Golden fried chicken, garlic rice and egg.", "chicksilog"],
   ["Silog Meals", "Sausagesilog", 120, "Hearty sausage, garlic rice and egg.", "silog"],
-  ["Silog Meals", "Beef Bulgogi Silog", 130, "Korean-style sweet beef bulgogi, garlic rice and egg.", "silog"],
+  ["Silog Meals", "Beef Bulgogi Silog", 130, "Korean-style sweet beef bulgogi, garlic rice and egg.", "beefBulgogi"],
   ["Silog Meals", "Pork Silog", 165, "Generous pork serving with garlic rice and egg.", "silog"],
 
   ["Rice Meals", "Sisig Tofu", 99, "Crispy tofu sisig, a meat-free bestseller.", "rice"],
@@ -137,6 +141,7 @@ const menu = [
   price,
   description,
   image: images[imageKey],
+  isYohanaPhoto: yohanaPhotoKeys.has(imageKey),
   options: options || null,
 }));
 
@@ -213,7 +218,7 @@ function renderMenu() {
         <article class="menu-card">
           <div class="food-photo">
             <img src="${item.image}" alt="${item.name}" loading="lazy" />
-            <span class="sample-pill">Sample photo</span>
+            <span class="sample-pill">${item.isYohanaPhoto ? "Yohana's photo" : "Sample photo"}</span>
           </div>
           <div class="card-body">
             <div class="card-top">

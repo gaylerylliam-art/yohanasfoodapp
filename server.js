@@ -208,7 +208,9 @@ function ratingsSummary(ratings) {
 function serveStatic(req, res) {
   const url = new URL(req.url, `http://${req.headers.host}`);
   const route = url.pathname === "/" ? "/index.html" : url.pathname;
-  if (!PUBLIC_FILES.has(url.pathname) && !route.endsWith(".mp4") && !route.endsWith(".webm")) {
+  const isWalkthrough = route.endsWith(".mp4") || route.endsWith(".webm");
+  const isMenuPhoto = route.startsWith("/assets/menu/") && /\.jpe?g$/i.test(route);
+  if (!PUBLIC_FILES.has(url.pathname) && !isWalkthrough && !isMenuPhoto) {
     res.writeHead(404);
     res.end("Not found");
     return;
@@ -229,9 +231,11 @@ function serveStatic(req, res) {
         ? "text/css; charset=utf-8"
         : ext === ".js"
           ? "application/javascript; charset=utf-8"
-          : ext === ".mp4"
-            ? "video/mp4"
-            : "video/webm";
+        : ext === ".mp4"
+          ? "video/mp4"
+          : ext === ".jpeg" || ext === ".jpg"
+            ? "image/jpeg"
+          : "video/webm";
   res.writeHead(200, { "content-type": type });
   fs.createReadStream(filePath).pipe(res);
 }
