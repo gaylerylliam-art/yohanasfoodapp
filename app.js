@@ -15,6 +15,7 @@ const images = {
   noodlePromax: "https://images.unsplash.com/photo-1580835267448-536d00f9cd4c?auto=format&fit=crop&fm=jpg&q=72&w=900",
   specialLomi: "assets/menu/special-lomi.png",
   promaxLomi: "assets/menu/promax-lomi.png",
+  mamiRegular: "assets/menu/mami-regular.png",
   beefBulgogi: "assets/menu/beef-bulgogi-silog-v2.png",
   chicksilog: "assets/menu/chicksilog-v2.jpeg",
   chaoFanFriedEgg: "assets/menu/chao-fan-fried-egg.png",
@@ -41,6 +42,7 @@ const tierConfig = {
 const tierImageOverrides = {
   "Lomi::S": images.specialLomi,
   "Lomi::P": images.promaxLomi,
+  "Mami::R": images.mamiRegular,
 };
 
 function makeTierOptions(itemName, options) {
@@ -105,11 +107,11 @@ const menu = [
   ["Solo Boodle", "YK SB4", 269, "Pork chop, shanghai, red egg, veggies, rice and fruits.", "rice"],
   ["Solo Boodle", "YK SB5", 299, "Buttered shrimp, pork tocino, shanghai, red egg, veggies, rice and fruits.", "rice"],
 
-  ["YK Burger", "Classic Burger", 199, "A straightforward, proper-sized classic burger.", "classicBurger"],
-  ["YK Burger", "Original Burger", 239, "The original YK build, stacked and juicy.", "originalBurger"],
-  ["YK Burger", "Spicy Burger", 259, "For those who like a bit of heat.", "spicyBurger"],
-  ["YK Burger", "Special Burger", 269, "Loaded with everything we've got.", "specialBurger"],
-  ["YK Burger", "Mushroom Burger", 299, "Smothered in mushrooms, YK's top-tier burger.", "mushroomBurger"],
+  ["YK Burger", "Classic Burger", 120, "A straightforward, proper-sized classic burger.", "classicBurger"],
+  ["YK Burger", "Original Burger", 140, "The original YK build, stacked and juicy.", "originalBurger"],
+  ["YK Burger", "Spicy Burger", 150, "For those who like a bit of heat.", "spicyBurger"],
+  ["YK Burger", "Special Burger", 160, "Loaded with everything we've got.", "specialBurger"],
+  ["YK Burger", "Mushroom Burger", 165, "Smothered in mushrooms, YK's top-tier burger.", "mushroomBurger"],
 
   ["Noodles", "Lomi", 60, "Thick noodles in rich broth - beef, pork or chicken.", "noodles", ["R ₱60", "S ₱125", "P ₱260"]],
   ["Noodles", "Mami", 60, "Comforting noodle soup - beef, pork or chicken.", "noodles", ["R ₱60", "S ₱125", "P ₱260"]],
