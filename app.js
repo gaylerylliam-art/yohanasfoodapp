@@ -15,14 +15,15 @@ const images = {
   chaoFanFriedCarajay: "assets/menu/chao-fan-fried-carajay.png",
   bangsilog: "assets/menu/bangsilog.png",
   sausageSilog: "assets/menu/sausage-silog.png",
+  tosilog: "assets/menu/tosilog.png",
 };
 
-const yohanaPhotoKeys = new Set(["beefBulgogi", "chicksilog", "chaoFanFriedCarajay", "bangsilog", "sausageSilog"]);
+const yohanaPhotoKeys = new Set(["beefBulgogi", "chicksilog", "chaoFanFriedCarajay", "bangsilog", "sausageSilog", "tosilog"]);
 
 const menu = [
   ["Silog Meals", "Longsilog", 99, "Sweet homemade longganisa, garlic rice and sunny egg.", "silog"],
   ["Silog Meals", "Tapsilog", 99, "Tender beef tapa with garlic rice and egg.", "silog"],
-  ["Silog Meals", "Tosilog", 99, "Sweet-savoury tocino, garlic rice and egg.", "silog"],
+  ["Silog Meals", "Tosilog", 99, "Sweet-savoury tocino, garlic rice and egg.", "tosilog"],
   ["Silog Meals", "Hotsilog", 99, "Juicy hotdogs, garlic rice and egg.", "silog"],
   ["Silog Meals", "Sisig Silog", 99, "Sizzling-style sisig over garlic rice with egg.", "silog"],
   ["Silog Meals", "Bangsilog", 99, "Crispy boneless bangus, garlic rice and egg.", "bangsilog"],
