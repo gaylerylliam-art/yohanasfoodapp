@@ -18,9 +18,13 @@ const images = {
   tosilog: "assets/menu/tosilog.png",
   spamsilog: "assets/menu/spamsilog.png",
   haloHaloCoffeeRegular: "assets/menu/halo-halo-coffee-regular.png",
+  classicBurger: "assets/menu/classic-burger.png",
+  spicyBurger: "assets/menu/spicy-burger.png",
+  specialBurger: "assets/menu/special-burger.png",
+  mushroomBurger: "assets/menu/mushroom-burger.png",
 };
 
-const yohanaPhotoKeys = new Set(["beefBulgogi", "chicksilog", "chaoFanFriedCarajay", "bangsilog", "sausageSilog", "tosilog", "spamsilog", "haloHaloCoffeeRegular"]);
+const yohanaPhotoKeys = new Set(["beefBulgogi", "chicksilog", "chaoFanFriedCarajay", "bangsilog", "sausageSilog", "tosilog", "spamsilog", "haloHaloCoffeeRegular", "classicBurger", "spicyBurger", "specialBurger", "mushroomBurger"]);
 
 const menu = [
   ["Silog Meals", "Longsilog", 99, "Sweet homemade longganisa, garlic rice and sunny egg.", "silog"],
@@ -67,11 +71,11 @@ const menu = [
   ["Solo Boodle", "YK SB4", 269, "Pork chop, shanghai, red egg, veggies, rice and fruits.", "rice"],
   ["Solo Boodle", "YK SB5", 299, "Buttered shrimp, pork tocino, shanghai, red egg, veggies, rice and fruits.", "rice"],
 
-  ["YK Burger", "Classic Burger", 199, "A straightforward, proper-sized classic burger.", "burger"],
+  ["YK Burger", "Classic Burger", 199, "A straightforward, proper-sized classic burger.", "classicBurger"],
   ["YK Burger", "Original Burger", 239, "The original YK build, stacked and juicy.", "burger"],
-  ["YK Burger", "Spicy Burger", 259, "For those who like a bit of heat.", "burger"],
-  ["YK Burger", "Special Burger", 269, "Loaded with everything we've got.", "burger"],
-  ["YK Burger", "Mushroom Burger", 299, "Smothered in mushrooms, YK's top-tier burger.", "burger"],
+  ["YK Burger", "Spicy Burger", 259, "For those who like a bit of heat.", "spicyBurger"],
+  ["YK Burger", "Special Burger", 269, "Loaded with everything we've got.", "specialBurger"],
+  ["YK Burger", "Mushroom Burger", 299, "Smothered in mushrooms, YK's top-tier burger.", "mushroomBurger"],
 
   ["Noodles", "Lomi", 60, "Thick noodles in rich broth - beef, pork or chicken.", "noodles", ["R ₱60", "S ₱125", "P ₱260"]],
   ["Noodles", "Mami", 60, "Comforting noodle soup - beef, pork or chicken.", "noodles", ["R ₱60", "S ₱125", "P ₱260"]],
