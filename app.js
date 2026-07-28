@@ -11,7 +11,7 @@ const images = {
   pasta: "https://images.unsplash.com/photo-1612874742237-6526221588e3?auto=format&fit=crop&fm=jpg&q=72&w=900",
   pack: "https://images.unsplash.com/photo-1606923829579-0cb981a83e2e?auto=format&fit=crop&fm=jpg&q=72&w=900",
   beefBulgogi: "assets/menu/beef-bulgogi.jpeg",
-  chicksilog: "assets/menu/chicksilog.jpeg",
+  chicksilog: "assets/menu/chicksilog-v2.jpeg",
   chaoFanFriedCarajay: "assets/menu/chao-fan-fried-carajay.png",
   bangsilog: "assets/menu/bangsilog.png",
 };
