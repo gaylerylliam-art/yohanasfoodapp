@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yohana's Kitchenette</title>
+    <link rel="preconnect" href="https://images.unsplash.com" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Solano, Nueva Vizcaya</p>
+          <h1>Yohana's Kitchenette</h1>
+          <p class="tagline">The taste of homemade goodness, ready for pickup or delivery.</p>
+          <div class="hero-meta">
+            <span>Open 7:00 AM - 8:00 PM</span>
+            <span>GCash only</span>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <section class="toolbar" aria-label="Menu controls">
+          <label class="search-field">
+            <span>Search menu</span>
+            <input id="searchInput" type="search" placeholder="Try silog, lomi, halo-halo..." autocomplete="off" />
+          </label>
+          <div class="category-strip" id="categoryStrip"></div>
+        </section>
+
+        <section class="notice">
+          <strong>GCash payment only.</strong>
+          <span>Place your order, send payment to Yohana's Kitchenette, then paste the GCash reference number at checkout.</span>
+        </section>
+
+        <section class="menu-grid" id="menuGrid" aria-live="polite"></section>
+      </main>
+    </div>
+
+    <aside class="cart-panel" id="cartPanel" aria-label="Order cart">
+      <div class="cart-header">
+        <div>
+          <p class="eyebrow">Your order</p>
+          <h2>Cart</h2>
+        </div>
+        <button class="icon-button" id="closeCart" aria-label="Close cart">x</button>
+      </div>
+      <div id="cartItems" class="cart-items"></div>
+      <div class="cart-empty" id="cartEmpty">Your cart is empty.</div>
+      <div class="cart-footer">
+        <div class="total-row">
+          <span>Total</span>
+          <strong id="cartTotal">₱0</strong>
+        </div>
+        <button class="primary-button" id="checkoutButton" disabled>Checkout with GCash</button>
+      </div>
+    </aside>
+
+    <button class="floating-cart" id="openCart" aria-label="Open cart">
+      <span>Cart</span>
+      <strong id="cartCount">0</strong>
+    </button>
+
+    <dialog id="checkoutDialog">
+      <form method="dialog" class="checkout-form" id="checkoutForm">
+        <div class="dialog-header">
+          <div>
+            <p class="eyebrow">GCash checkout</p>
+            <h2>Confirm order</h2>
+          </div>
+          <button class="icon-button" value="cancel" aria-label="Close checkout">x</button>
+        </div>
+        <label>
+          Name
+          <input required name="name" placeholder="Customer name" />
+        </label>
+        <label>
+          Mobile number
+          <input required name="phone" inputmode="tel" placeholder="09xx xxx xxxx" />
+        </label>
+        <label>
+          Email for receipt
+          <input name="email" type="email" placeholder="customer@email.com" />
+        </label>
+        <label>
+          Order type
+          <select name="fulfillment">
+            <option>Pickup</option>
+            <option>Delivery</option>
+          </select>
+        </label>
+        <label>
+          Delivery address or pickup note
+          <textarea name="address" rows="3" placeholder="Street, barangay, landmark, or pickup time"></textarea>
+        </label>
+        <label>
+          GCash reference number
+          <input required name="gcash" placeholder="Paste GCash payment reference" />
+        </label>
+        <div class="payment-card">
+          <span>Payment method</span>
+          <strong>GCash only</strong>
+          <small>After ordering, the app creates an order reference and prepares SMS/email notification with the summary, amount and payment details.</small>
+        </div>
+        <button class="primary-button" value="default">Submit order</button>
+      </form>
+    </dialog>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="app.js"></script>
+  </body>
+</html>

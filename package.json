@@ -1,0 +1,16 @@
+{
+  "name": "yohanas-kitchenette-food-app",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Full-stack mobile food ordering app for Yohana's Kitchenette.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@ffmpeg-installer/ffmpeg": "^1.1.0"
+  }
+}

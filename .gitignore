@@ -1,0 +1,12 @@
+# Secrets and local runtime state
+.env
+data/
+*.log
+
+# Installed dependencies
+node_modules/
+
+# Separate local promo experiment, not part of the food ordering app source
+make_august_promo.py
+video_assets/
+Yohanas_Healthy_Canton_August_Promo.mp4
