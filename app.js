@@ -17,9 +17,10 @@ const images = {
   sausageSilog: "assets/menu/sausage-silog.png",
   tosilog: "assets/menu/tosilog.png",
   spamsilog: "assets/menu/spamsilog.png",
+  haloHaloCoffeeRegular: "assets/menu/halo-halo-coffee-regular.png",
 };
 
-const yohanaPhotoKeys = new Set(["beefBulgogi", "chicksilog", "chaoFanFriedCarajay", "bangsilog", "sausageSilog", "tosilog", "spamsilog"]);
+const yohanaPhotoKeys = new Set(["beefBulgogi", "chicksilog", "chaoFanFriedCarajay", "bangsilog", "sausageSilog", "tosilog", "spamsilog", "haloHaloCoffeeRegular"]);
 
 const menu = [
   ["Silog Meals", "Longsilog", 99, "Sweet homemade longganisa, garlic rice and sunny egg.", "silog"],
@@ -128,7 +129,7 @@ const menu = [
   ["Drinks & Refreshment", "Halo-Halo Special", 129, "Loaded halo-halo with all the toppings.", "drinks"],
   ["Drinks & Refreshment", "Halo-Halo Regular", 85, "The classic cooler for Solano afternoons.", "drinks"],
   ["Drinks & Refreshment", "Halo-Halo Coffee Special", 129, "Halo-halo with a coffee kick.", "drinks"],
-  ["Drinks & Refreshment", "Halo-Halo Coffee Regular", 85, "Coffee halo-halo, regular size.", "drinks"],
+  ["Drinks & Refreshment", "Halo-Halo Coffee Regular", 85, "Coffee halo-halo, regular size.", "haloHaloCoffeeRegular"],
   ["Drinks & Refreshment", "Cucumber Lemonade (16 oz)", 75, "Cool cucumber lemonade.", "drinks"],
   ["Drinks & Refreshment", "Carrot Juice Lemonade (16 oz)", 75, "Carrot and lemon, surprisingly refreshing.", "drinks"],
   ["Drinks & Refreshment", "Yakult Lemonade (16 oz)", 70, "Tangy Yakult lemonade.", "drinks"],
