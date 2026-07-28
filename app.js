@@ -10,8 +10,15 @@ const images = {
   fries: "https://images.unsplash.com/photo-1576107232684-1279f390859f?auto=format&fit=crop&fm=jpg&q=72&w=900",
   pasta: "https://images.unsplash.com/photo-1612874742237-6526221588e3?auto=format&fit=crop&fm=jpg&q=72&w=900",
   pack: "https://images.unsplash.com/photo-1606923829579-0cb981a83e2e?auto=format&fit=crop&fm=jpg&q=72&w=900",
+  noodleRegular: "https://images.unsplash.com/photo-1547928578-bca3e9c5a0ab?auto=format&fit=crop&fm=jpg&q=72&w=900",
+  noodleSpecial: "https://images.unsplash.com/photo-1758979690131-11e2aa0b142b?auto=format&fit=crop&fm=jpg&q=72&w=900",
+  noodlePromax: "https://images.unsplash.com/photo-1580835267448-536d00f9cd4c?auto=format&fit=crop&fm=jpg&q=72&w=900",
+  specialLomi: "assets/menu/special-lomi.png",
+  promaxLomi: "assets/menu/promax-lomi.png",
   beefBulgogi: "assets/menu/beef-bulgogi-silog-v2.png",
   chicksilog: "assets/menu/chicksilog-v2.jpeg",
+  chaoFanFriedEgg: "assets/menu/chao-fan-fried-egg.png",
+  chaoFanShanghai: "assets/menu/chao-fan-shanghai.png",
   chaoFanFriedCarajay: "assets/menu/chao-fan-fried-carajay.png",
   bangsilog: "assets/menu/bangsilog.png",
   sausageSilog: "assets/menu/sausage-silog.png",
@@ -19,12 +26,39 @@ const images = {
   spamsilog: "assets/menu/spamsilog.png",
   haloHaloCoffeeRegular: "assets/menu/halo-halo-coffee-regular.png",
   classicBurger: "assets/menu/classic-burger.png",
+  originalBurger: "assets/menu/original-burger.png",
   spicyBurger: "assets/menu/spicy-burger.png",
   specialBurger: "assets/menu/special-burger.png",
   mushroomBurger: "assets/menu/mushroom-burger.png",
 };
 
-const yohanaPhotoKeys = new Set(["beefBulgogi", "chicksilog", "chaoFanFriedCarajay", "bangsilog", "sausageSilog", "tosilog", "spamsilog", "haloHaloCoffeeRegular", "classicBurger", "spicyBurger", "specialBurger", "mushroomBurger"]);
+const yohanaPhotoKeys = new Set(["beefBulgogi", "chicksilog", "chaoFanFriedEgg", "chaoFanShanghai", "chaoFanFriedCarajay", "bangsilog", "sausageSilog", "tosilog", "spamsilog", "haloHaloCoffeeRegular", "classicBurger", "originalBurger", "spicyBurger", "specialBurger", "mushroomBurger"]);
+const tierConfig = {
+  R: { name: "Regular", serving: "1 pax", image: images.noodleRegular },
+  S: { name: "Special", serving: "1 pax", image: images.noodleSpecial },
+  P: { name: "Promax", serving: "2-3 pax", image: images.noodlePromax },
+};
+const tierImageOverrides = {
+  "Lomi::S": images.specialLomi,
+  "Lomi::P": images.promaxLomi,
+};
+
+function makeTierOptions(itemName, options) {
+  if (!options) return [];
+  return options
+    .map((option) => {
+      const match = String(option).match(/^(R|S|P)\s+\D*([\d.]+)/);
+      if (!match) return null;
+      const config = tierConfig[match[1]];
+      return {
+        ...config,
+        code: match[1],
+        image: tierImageOverrides[`${itemName}::${match[1]}`] || config.image,
+        price: Number(match[2]),
+      };
+    })
+    .filter(Boolean);
+}
 
 const menu = [
   ["Silog Meals", "Longsilog", 99, "Sweet homemade longganisa, garlic rice and sunny egg.", "silog"],
@@ -60,8 +94,8 @@ const menu = [
   ["Rice Bowl Special", "Stir Fry Pork", 199, "Wok-tossed pork with vegetables over rice.", "bowl"],
   ["Rice Bowl Special", "Fish Katsudon", 218, "Crispy fish katsu simmered with egg over rice.", "bowl"],
 
-  ["Chaofan Meals", "Chao Fan - Fried Egg", 65, "Classic fried rice topped with a fried egg.", "bowl"],
-  ["Chaofan Meals", "Chao Fan - Shanghai", 75, "Fried rice with crispy lumpiang shanghai.", "bowl"],
+  ["Chaofan Meals", "Chao Fan - Fried Egg", 65, "Classic fried rice topped with a fried egg.", "chaoFanFriedEgg"],
+  ["Chaofan Meals", "Chao Fan - Shanghai", 75, "Fried rice with crispy lumpiang shanghai.", "chaoFanShanghai"],
   ["Chaofan Meals", "Chao Fan - Siomai", 75, "Fried rice paired with steamed siomai.", "bowl"],
   ["Chaofan Meals", "Chao Fan - Fried Carajay", 80, "Our signature carajay-style fried rice.", "chaoFanFriedCarajay"],
 
@@ -72,7 +106,7 @@ const menu = [
   ["Solo Boodle", "YK SB5", 299, "Buttered shrimp, pork tocino, shanghai, red egg, veggies, rice and fruits.", "rice"],
 
   ["YK Burger", "Classic Burger", 199, "A straightforward, proper-sized classic burger.", "classicBurger"],
-  ["YK Burger", "Original Burger", 239, "The original YK build, stacked and juicy.", "burger"],
+  ["YK Burger", "Original Burger", 239, "The original YK build, stacked and juicy.", "originalBurger"],
   ["YK Burger", "Spicy Burger", 259, "For those who like a bit of heat.", "spicyBurger"],
   ["YK Burger", "Special Burger", 269, "Loaded with everything we've got.", "specialBurger"],
   ["YK Burger", "Mushroom Burger", 299, "Smothered in mushrooms, YK's top-tier burger.", "mushroomBurger"],
@@ -144,16 +178,20 @@ const menu = [
   ["Drinks & Refreshment", "Softdrinks 1 Litre", 50, "1 litre for sharing.", "drinks"],
   ["Drinks & Refreshment", "Bottled Water 500 ml", 20, "Cold bottled water.", "drinks"],
   ["Drinks & Refreshment", "Bottled Water 1 L", 30, "1 litre bottled water.", "drinks"],
-].map(([category, name, price, description, imageKey, options], index) => ({
-  id: `item-${index}`,
-  category,
-  name,
-  price,
-  description,
-  image: images[imageKey],
-  isYohanaPhoto: yohanaPhotoKeys.has(imageKey),
-  options: options || null,
-}));
+].map(([category, name, price, description, imageKey, options], index) => {
+  const tierOptions = makeTierOptions(name, options);
+  return {
+    id: `item-${index}`,
+    category,
+    name,
+    price,
+    description,
+    image: images[imageKey],
+    isYohanaPhoto: yohanaPhotoKeys.has(imageKey),
+    options: tierOptions.length ? null : options || null,
+    tierOptions,
+  };
+});
 
 const categories = ["All", ...new Set(menu.map((item) => item.category))];
 const state = {
@@ -191,6 +229,28 @@ function escapeHtml(value) {
 
 function getRatingSummary(itemId) {
   return state.ratings.get(itemId) || { average: 0, count: 0, comments: [] };
+}
+
+function renderTierOptions(item) {
+  if (!item.tierOptions.length) return "";
+  return `
+    <div class="tier-grid" aria-label="Available sizes for ${item.name}">
+      ${item.tierOptions
+        .map(
+          (tier, index) => `
+            <button class="tier-card" type="button" data-id="${item.id}" data-tier-index="${index}">
+              <img src="${tier.image}" alt="${item.name} ${tier.name}" loading="lazy" />
+              <span>
+                <strong>${tier.name}</strong>
+                <small>${tier.serving}</small>
+              </span>
+              <b>${peso(tier.price)}</b>
+            </button>
+          `,
+        )
+        .join("")}
+    </div>
+  `;
 }
 
 function renderStars(value) {
@@ -236,9 +296,10 @@ function renderMenu() {
                 <h3>${item.name}</h3>
                 <span class="category-name">${item.category}</span>
               </div>
-              <strong class="price">${peso(item.price)}</strong>
+              <strong class="price">${item.tierOptions.length ? `From ${peso(item.price)}` : peso(item.price)}</strong>
             </div>
             <p class="description">${item.description}</p>
+            ${renderTierOptions(item)}
             ${item.options ? `<div class="option-row">${item.options.map((option) => `<span class="option-chip">${option}</span>`).join("")}</div>` : ""}
             <div class="rating-summary">
               <strong>${renderStars(rating.average)}</strong>
@@ -275,7 +336,7 @@ function renderMenu() {
                     .join("")}</div>`
                 : ""
             }
-            <button class="add-button" data-id="${item.id}">Add to cart</button>
+            ${item.tierOptions.length ? "" : `<button class="add-button" data-id="${item.id}">Add to cart</button>`}
           </div>
         </article>
       `;
@@ -288,10 +349,19 @@ function renderMenu() {
 }
 
 function getCartLines() {
-  return [...state.cart.entries()].map(([id, qty]) => ({
-    ...menu.find((item) => item.id === id),
-    qty,
-  }));
+  return [...state.cart.entries()].map(([cartKey, qty]) => {
+    const [id, tierIndex] = cartKey.split("::");
+    const item = menu.find((menuItem) => menuItem.id === id);
+    const tier = tierIndex === undefined ? null : item?.tierOptions[Number(tierIndex)];
+    return {
+      ...item,
+      id: cartKey,
+      itemId: id,
+      name: tier ? `${item.name} (${tier.name})` : item.name,
+      price: tier ? tier.price : item.price,
+      qty,
+    };
+  });
 }
 
 function renderCart() {
@@ -323,8 +393,9 @@ function renderCart() {
     .join("");
 }
 
-function addToCart(id) {
-  state.cart.set(id, (state.cart.get(id) || 0) + 1);
+function addToCart(id, tierIndex) {
+  const key = tierIndex === undefined ? id : `${id}::${tierIndex}`;
+  state.cart.set(key, (state.cart.get(key) || 0) + 1);
   renderCart();
   showToast("Added to cart.");
 }
@@ -398,7 +469,7 @@ categoryStrip.addEventListener("click", (event) => {
 menuGrid.addEventListener("click", (event) => {
   const button = event.target.closest("[data-id]");
   if (!button) return;
-  addToCart(button.dataset.id);
+  addToCart(button.dataset.id, button.dataset.tierIndex);
 });
 
 menuGrid.addEventListener("submit", async (event) => {
