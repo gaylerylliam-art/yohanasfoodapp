@@ -46,3 +46,7 @@ SENDGRID_FROM_EMAIL=verified_sender@email.com
 ```
 
 Without these credentials, the app still creates the order reference and saves the full notification content in the local outbox.
+
+## Netlify Deployment
+
+The production deployment uses Netlify Functions and Netlify Blobs, so orders, ratings, comments and notification records persist separately from the local `data/db.json` file. Configure the optional Twilio and SendGrid variables in the Netlify site's environment settings before using live SMS or email notifications.
