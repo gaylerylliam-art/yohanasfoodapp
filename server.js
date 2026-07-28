@@ -209,7 +209,7 @@ function serveStatic(req, res) {
   const url = new URL(req.url, `http://${req.headers.host}`);
   const route = url.pathname === "/" ? "/index.html" : url.pathname;
   const isWalkthrough = route.endsWith(".mp4") || route.endsWith(".webm");
-  const isMenuPhoto = route.startsWith("/assets/menu/") && /\.jpe?g$/i.test(route);
+  const isMenuPhoto = route.startsWith("/assets/menu/") && /\.(?:jpe?g|png)$/i.test(route);
   if (!PUBLIC_FILES.has(url.pathname) && !isWalkthrough && !isMenuPhoto) {
     res.writeHead(404);
     res.end("Not found");
@@ -235,6 +235,8 @@ function serveStatic(req, res) {
           ? "video/mp4"
           : ext === ".jpeg" || ext === ".jpg"
             ? "image/jpeg"
+            : ext === ".png"
+              ? "image/png"
           : "video/webm";
   res.writeHead(200, { "content-type": type });
   fs.createReadStream(filePath).pipe(res);

@@ -12,9 +12,10 @@ const images = {
   pack: "https://images.unsplash.com/photo-1606923829579-0cb981a83e2e?auto=format&fit=crop&fm=jpg&q=72&w=900",
   beefBulgogi: "assets/menu/beef-bulgogi.jpeg",
   chicksilog: "assets/menu/chicksilog.jpeg",
+  chaoFanFriedCarajay: "assets/menu/chao-fan-fried-carajay.png",
 };
 
-const yohanaPhotoKeys = new Set(["beefBulgogi", "chicksilog"]);
+const yohanaPhotoKeys = new Set(["beefBulgogi", "chicksilog", "chaoFanFriedCarajay"]);
 
 const menu = [
   ["Silog Meals", "Longsilog", 99, "Sweet homemade longganisa, garlic rice and sunny egg.", "silog"],
@@ -53,7 +54,7 @@ const menu = [
   ["Chaofan Meals", "Chao Fan - Fried Egg", 65, "Classic fried rice topped with a fried egg.", "bowl"],
   ["Chaofan Meals", "Chao Fan - Shanghai", 75, "Fried rice with crispy lumpiang shanghai.", "bowl"],
   ["Chaofan Meals", "Chao Fan - Siomai", 75, "Fried rice paired with steamed siomai.", "bowl"],
-  ["Chaofan Meals", "Chao Fan - Fried Carajay", 80, "Our signature carajay-style fried rice.", "bowl"],
+  ["Chaofan Meals", "Chao Fan - Fried Carajay", 80, "Our signature carajay-style fried rice.", "chaoFanFriedCarajay"],
 
   ["Solo Boodle", "YK SB1", 199, "Fried tilapia, shanghai, red egg, veggies, rice and fruits.", "rice"],
   ["Solo Boodle", "YK SB2", 239, "Fried chicken, hotdog, red egg, veggies, rice and fruits.", "rice"],
