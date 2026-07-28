@@ -13,9 +13,10 @@ const images = {
   beefBulgogi: "assets/menu/beef-bulgogi.jpeg",
   chicksilog: "assets/menu/chicksilog.jpeg",
   chaoFanFriedCarajay: "assets/menu/chao-fan-fried-carajay.png",
+  bangsilog: "assets/menu/bangsilog.png",
 };
 
-const yohanaPhotoKeys = new Set(["beefBulgogi", "chicksilog", "chaoFanFriedCarajay"]);
+const yohanaPhotoKeys = new Set(["beefBulgogi", "chicksilog", "chaoFanFriedCarajay", "bangsilog"]);
 
 const menu = [
   ["Silog Meals", "Longsilog", 99, "Sweet homemade longganisa, garlic rice and sunny egg.", "silog"],
@@ -23,7 +24,7 @@ const menu = [
   ["Silog Meals", "Tosilog", 99, "Sweet-savoury tocino, garlic rice and egg.", "silog"],
   ["Silog Meals", "Hotsilog", 99, "Juicy hotdogs, garlic rice and egg.", "silog"],
   ["Silog Meals", "Sisig Silog", 99, "Sizzling-style sisig over garlic rice with egg.", "silog"],
-  ["Silog Meals", "Bangsilog", 99, "Crispy boneless bangus, garlic rice and egg.", "silog"],
+  ["Silog Meals", "Bangsilog", 99, "Crispy boneless bangus, garlic rice and egg.", "bangsilog"],
   ["Silog Meals", "Hamsilog", 99, "Savoury ham, garlic rice and egg.", "silog"],
   ["Silog Meals", "Spamsilog", 99, "Pan-fried Spam, garlic rice and egg.", "silog"],
   ["Silog Meals", "Chicksilog", 120, "Golden fried chicken, garlic rice and egg.", "chicksilog"],
