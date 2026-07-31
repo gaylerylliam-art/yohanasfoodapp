@@ -16,10 +16,12 @@ const images = {
   specialLomi: "assets/menu/special-lomi.png",
   promaxLomi: "assets/menu/promax-lomi.png",
   mamiRegular: "assets/menu/mami-regular.png",
+  specialCabagan: "assets/menu/special-cabagan.png",
   beefBulgogi: "assets/menu/beef-bulgogi-silog-v2.png",
   chicksilog: "assets/menu/chicksilog-v2.jpeg",
   chaoFanFriedEgg: "assets/menu/chao-fan-fried-egg.png",
   chaoFanShanghai: "assets/menu/chao-fan-shanghai.png",
+  chaoFanSiomai: "assets/menu/chao-fan-siomai.png",
   chaoFanFriedCarajay: "assets/menu/chao-fan-fried-carajay.png",
   bangsilog: "assets/menu/bangsilog.png",
   longsilog: "assets/menu/longsilog.png",
@@ -39,7 +41,7 @@ const images = {
   mushroomBurger: "assets/menu/mushroom-burger.png",
 };
 
-const yohanaPhotoKeys = new Set(["beefBulgogi", "chicksilog", "chaoFanFriedEgg", "chaoFanShanghai", "chaoFanFriedCarajay", "bangsilog", "longsilog", "sisigSilog", "tapsilog", "hotsilog", "hamsilog", "porkSilog", "sausageSilog", "tosilog", "spamsilog", "haloHaloCoffeeRegular", "classicBurger", "originalBurger", "spicyBurger", "specialBurger", "mushroomBurger"]);
+const yohanaPhotoKeys = new Set(["beefBulgogi", "chicksilog", "chaoFanFriedEgg", "chaoFanShanghai", "chaoFanSiomai", "chaoFanFriedCarajay", "bangsilog", "longsilog", "sisigSilog", "tapsilog", "hotsilog", "hamsilog", "porkSilog", "sausageSilog", "tosilog", "spamsilog", "haloHaloCoffeeRegular", "classicBurger", "originalBurger", "spicyBurger", "specialBurger", "mushroomBurger"]);
 const tierConfig = {
   R: { name: "Regular", serving: "1 pax", image: images.noodleRegular },
   S: { name: "Special", serving: "1 pax", image: images.noodleSpecial },
@@ -49,6 +51,7 @@ const tierImageOverrides = {
   "Lomi::S": images.specialLomi,
   "Lomi::P": images.promaxLomi,
   "Mami::R": images.mamiRegular,
+  "Cabagan::S": images.specialCabagan,
 };
 
 function makeTierOptions(itemName, options) {
@@ -104,7 +107,7 @@ const menu = [
 
   ["Chaofan Meals", "Chao Fan - Fried Egg", 65, "Classic fried rice topped with a fried egg.", "chaoFanFriedEgg"],
   ["Chaofan Meals", "Chao Fan - Shanghai", 75, "Fried rice with crispy lumpiang shanghai.", "chaoFanShanghai"],
-  ["Chaofan Meals", "Chao Fan - Siomai", 75, "Fried rice paired with steamed siomai.", "bowl"],
+  ["Chaofan Meals", "Chao Fan - Siomai", 75, "Fried rice paired with steamed siomai.", "chaoFanSiomai"],
   ["Chaofan Meals", "Chao Fan - Fried Carajay", 80, "Our signature carajay-style fried rice.", "chaoFanFriedCarajay"],
 
   ["Solo Boodle", "YK SB1", 199, "Fried tilapia, shanghai, red egg, veggies, rice and fruits.", "rice"],
