@@ -17,6 +17,10 @@ const images = {
   promaxLomi: "assets/menu/promax-lomi.png",
   mamiRegular: "assets/menu/mami-regular.png",
   specialCabagan: "assets/menu/special-cabagan.png",
+  tofuTonkatsu: "assets/menu/tofu-tonkatsu.png",
+  sisigTofu: "assets/menu/sisig-tofu.png",
+  palabok: "assets/menu/palabok.png",
+  porkKatsu: "assets/menu/pork-katsu.png",
   beefBulgogi: "assets/menu/beef-bulgogi-silog-v2.png",
   chicksilog: "assets/menu/chicksilog-v2.jpeg",
   chaoFanFriedEgg: "assets/menu/chao-fan-fried-egg.png",
@@ -41,7 +45,7 @@ const images = {
   mushroomBurger: "assets/menu/mushroom-burger.png",
 };
 
-const yohanaPhotoKeys = new Set(["beefBulgogi", "chicksilog", "chaoFanFriedEgg", "chaoFanShanghai", "chaoFanSiomai", "chaoFanFriedCarajay", "bangsilog", "longsilog", "sisigSilog", "tapsilog", "hotsilog", "hamsilog", "porkSilog", "sausageSilog", "tosilog", "spamsilog", "haloHaloCoffeeRegular", "classicBurger", "originalBurger", "spicyBurger", "specialBurger", "mushroomBurger"]);
+const yohanaPhotoKeys = new Set(["beefBulgogi", "chicksilog", "chaoFanFriedEgg", "chaoFanShanghai", "chaoFanSiomai", "chaoFanFriedCarajay", "bangsilog", "longsilog", "sisigSilog", "tapsilog", "hotsilog", "hamsilog", "porkSilog", "sausageSilog", "tosilog", "spamsilog", "haloHaloCoffeeRegular", "tofuTonkatsu", "sisigTofu", "palabok", "porkKatsu", "classicBurger", "originalBurger", "spicyBurger", "specialBurger", "mushroomBurger"]);
 const tierConfig = {
   R: { name: "Regular", serving: "1 pax", image: images.noodleRegular },
   S: { name: "Special", serving: "1 pax", image: images.noodleSpecial },
@@ -52,6 +56,9 @@ const tierImageOverrides = {
   "Lomi::P": images.promaxLomi,
   "Mami::R": images.mamiRegular,
   "Cabagan::S": images.specialCabagan,
+  "Palabok::R": images.palabok,
+  "Palabok::S": images.palabok,
+  "Palabok::P": images.palabok,
 };
 
 function makeTierOptions(itemName, options) {
@@ -85,7 +92,7 @@ const menu = [
   ["Silog Meals", "Beef Bulgogi Silog", 130, "Korean-style sweet beef bulgogi, garlic rice and egg.", "beefBulgogi"],
   ["Silog Meals", "Pork Silog", 165, "Generous pork serving with garlic rice and egg.", "porkSilog"],
 
-  ["Rice Meals", "Sisig Tofu", 99, "Crispy tofu sisig, a meat-free bestseller.", "rice"],
+  ["Rice Meals", "Sisig Tofu", 99, "Crispy tofu sisig, a meat-free bestseller.", "sisigTofu"],
   ["Rice Meals", "Beef Pares", 99, "Slow-braised beef in sweet-savoury sauce with rice.", "rice"],
   ["Rice Meals", "Chicken Teriyaki", 140, "Glazed teriyaki chicken over steaming rice.", "rice"],
   ["Rice Meals", "Crispy Chicken Curry", 145, "Crispy chicken in rich, creamy curry.", "rice"],
@@ -99,8 +106,8 @@ const menu = [
 
   ["Rice Bowl Special", "Chicken Pastil with Egg", 85, "Mindanao-style shredded chicken pastil topped with egg.", "bowl"],
   ["Rice Bowl Special", "Shawarma Rice", 99, "Shawarma-spiced meat over rice with garlic sauce.", "bowl"],
-  ["Rice Bowl Special", "Tofu Tonkatsu", 99, "Crispy panko tofu on a bed of rice.", "bowl"],
-  ["Rice Bowl Special", "Pork Katsu", 99, "Thick, crunchy pork katsu with rice.", "bowl"],
+  ["Rice Bowl Special", "Tofu Tonkatsu", 99, "Crispy panko tofu on a bed of rice.", "tofuTonkatsu"],
+  ["Rice Bowl Special", "Pork Katsu", 99, "Thick, crunchy pork katsu with rice.", "porkKatsu"],
   ["Rice Bowl Special", "Chicken Popper", 125, "Bite-sized crispy chicken poppers over rice.", "bowl"],
   ["Rice Bowl Special", "Stir Fry Pork", 199, "Wok-tossed pork with vegetables over rice.", "bowl"],
   ["Rice Bowl Special", "Fish Katsudon", 218, "Crispy fish katsu simmered with egg over rice.", "bowl"],
@@ -129,7 +136,7 @@ const menu = [
   ["Noodles", "Canton", 90, "Everyone's favourite pancit canton.", "stirNoodles", ["R ₱90", "S ₱160", "P ₱400"]],
   ["Noodles", "Cabagan", 95, "The Cagayan Valley classic, done right.", "noodles", ["R ₱95", "S ₱145", "P ₱320"]],
   ["Noodles", "Mami Beef Pares", 95, "Beef pares and mami noodles in one bowl.", "noodles", ["R ₱95", "S ₱145", "P ₱269"]],
-  ["Noodles", "Palabok", 95, "Rice noodles under thick shrimp-orange sauce.", "stirNoodles", ["R ₱95", "S ₱169", "P ₱450"]],
+  ["Noodles", "Palabok", 95, "Rice noodles under thick shrimp-orange sauce.", "palabok", ["R ₱95", "S ₱169", "P ₱450"]],
   ["Noodles", "Miki Stir Fry", 95, "Wok-fried miki with a savoury finish.", "stirNoodles", ["R ₱95"]],
   ["Noodles", "Sotanghon", 99, "Clear, comforting glass-noodle soup.", "noodles", ["R ₱99", "S ₱159", "P ₱450"]],
   ["Noodles", "Batil Patong", 100, "Tuguegarao-style miki topped with egg and crispy bits.", "noodles", ["R ₱100", "S ₱175", "P ₱410"]],
