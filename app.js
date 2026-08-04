@@ -230,6 +230,10 @@ const cartCount = document.querySelector("#cartCount");
 const checkoutButton = document.querySelector("#checkoutButton");
 const checkoutDialog = document.querySelector("#checkoutDialog");
 const checkoutForm = document.querySelector("#checkoutForm");
+const photoDialog = document.querySelector("#photoDialog");
+const photoDialogImage = document.querySelector("#photoDialogImage");
+const photoDialogTitle = document.querySelector("#photoDialogTitle");
+const closePhotoDialog = document.querySelector("#closePhotoDialog");
 const toast = document.querySelector("#toast");
 const API_BASE = window.location.protocol === "file:" ? "http://localhost:4174" : "";
 
@@ -305,7 +309,9 @@ function renderMenu() {
       return `
         <article class="menu-card">
           <div class="food-photo">
-            <img src="${item.image}" alt="${item.name}" loading="lazy" />
+            <button class="photo-zoom-button" type="button" data-zoom-id="${item.id}" aria-label="Open larger photo of ${escapeHtml(item.name)}">
+              <img src="${item.image}" alt="${item.name}" loading="lazy" />
+            </button>
             <span class="sample-pill">${item.isYohanaPhoto ? "Yohana's photo" : "Sample photo"}</span>
           </div>
           <div class="card-body">
@@ -476,6 +482,21 @@ async function submitRating(itemId, form) {
   showToast("Rating saved.");
 }
 
+function openPhotoPreview(itemId) {
+  const item = menu.find((menuItem) => menuItem.id === itemId);
+  if (!item) return;
+  photoDialogTitle.textContent = item.name;
+  photoDialogImage.src = item.image;
+  photoDialogImage.alt = item.name;
+  photoDialog.showModal();
+}
+
+function closePhotoPreview() {
+  photoDialog.close();
+  photoDialogImage.removeAttribute("src");
+  photoDialogImage.alt = "";
+}
+
 categoryStrip.addEventListener("click", (event) => {
   const button = event.target.closest("[data-category]");
   if (!button) return;
@@ -485,6 +506,12 @@ categoryStrip.addEventListener("click", (event) => {
 });
 
 menuGrid.addEventListener("click", (event) => {
+  const zoomButton = event.target.closest("[data-zoom-id]");
+  if (zoomButton) {
+    openPhotoPreview(zoomButton.dataset.zoomId);
+    return;
+  }
+
   const button = event.target.closest("[data-id]");
   if (!button) return;
   addToCart(button.dataset.id, button.dataset.tierIndex);
@@ -516,6 +543,10 @@ searchInput.addEventListener("input", (event) => {
 document.querySelector("#openCart").addEventListener("click", () => cartPanel.classList.add("open"));
 document.querySelector("#closeCart").addEventListener("click", () => cartPanel.classList.remove("open"));
 checkoutButton.addEventListener("click", () => checkoutDialog.showModal());
+closePhotoDialog.addEventListener("click", closePhotoPreview);
+photoDialog.addEventListener("click", (event) => {
+  if (event.target === photoDialog) closePhotoPreview();
+});
 
 checkoutForm.addEventListener("submit", async (event) => {
   event.preventDefault();
