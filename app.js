@@ -21,6 +21,14 @@ const images = {
   sisigTofu: "assets/menu/sisig-tofu.png",
   palabok: "assets/menu/palabok.png",
   porkKatsu: "assets/menu/pork-katsu.png",
+  cantonGisado: "assets/menu/canton-gisado.png",
+  cantonStirFry: "assets/menu/canton-stir-fry.png",
+  malunggayVeggieCanton: "assets/menu/malunggay-veggie-canton.png",
+  carrotVeggieCanton: "assets/menu/carrot-veggie-canton.png",
+  spinachVeggieCanton: "assets/menu/spinach-veggie-canton.png",
+  saluyotVeggieCanton: "assets/menu/saluyot-veggie-canton.png",
+  soybeansVeggieCanton: "assets/menu/soybeans-veggie-canton.png",
+  freshSoyMilk: "assets/menu/fresh-soy-milk.jpeg",
   beefBulgogi: "assets/menu/beef-bulgogi-silog-v2.png",
   chicksilog: "assets/menu/chicksilog-v2.jpeg",
   chaoFanFriedEgg: "assets/menu/chao-fan-fried-egg.png",
@@ -45,7 +53,7 @@ const images = {
   mushroomBurger: "assets/menu/mushroom-burger.png",
 };
 
-const yohanaPhotoKeys = new Set(["beefBulgogi", "chicksilog", "chaoFanFriedEgg", "chaoFanShanghai", "chaoFanSiomai", "chaoFanFriedCarajay", "bangsilog", "longsilog", "sisigSilog", "tapsilog", "hotsilog", "hamsilog", "porkSilog", "sausageSilog", "tosilog", "spamsilog", "haloHaloCoffeeRegular", "tofuTonkatsu", "sisigTofu", "palabok", "porkKatsu", "classicBurger", "originalBurger", "spicyBurger", "specialBurger", "mushroomBurger"]);
+const yohanaPhotoKeys = new Set(["beefBulgogi", "chicksilog", "chaoFanFriedEgg", "chaoFanShanghai", "chaoFanSiomai", "chaoFanFriedCarajay", "bangsilog", "longsilog", "sisigSilog", "tapsilog", "hotsilog", "hamsilog", "porkSilog", "sausageSilog", "tosilog", "spamsilog", "haloHaloCoffeeRegular", "tofuTonkatsu", "sisigTofu", "palabok", "porkKatsu", "cantonGisado", "cantonStirFry", "malunggayVeggieCanton", "carrotVeggieCanton", "spinachVeggieCanton", "saluyotVeggieCanton", "soybeansVeggieCanton", "freshSoyMilk", "classicBurger", "originalBurger", "spicyBurger", "specialBurger", "mushroomBurger"]);
 const tierConfig = {
   R: { name: "Regular", serving: "1 pax", image: images.noodleRegular },
   S: { name: "Special", serving: "1 pax", image: images.noodleSpecial },
@@ -151,17 +159,17 @@ const menu = [
 
   ["Healthy Veggy Noodles", "Veggy Lomi", 110, "Veggie-noodle lomi with beef, pork or chicken.", "noodles", ["R ₱110", "S ₱185", "P ₱320"]],
   ["Healthy Veggy Noodles", "Veggy Mami", 110, "Veggie noodle mami in a clean, comforting broth.", "noodles", ["R ₱110", "S ₱185", "P ₱320"]],
-  ["Healthy Veggy Noodles", "Canton Gisado", 145, "Sauteed veggie canton loaded with vegetables.", "stirNoodles", ["R ₱145", "S ₱185"]],
+  ["Healthy Veggy Noodles", "Canton Gisado", 145, "Sauteed veggie canton loaded with vegetables.", "cantonGisado", ["R ₱145", "S ₱185"]],
   ["Healthy Veggy Noodles", "Cabagan", 165, "Cabagan-style noodles made with veggie canton.", "noodles", ["R ₱165", "S ₱215", "P ₱370"]],
-  ["Healthy Veggy Noodles", "Canton Stir Fry", 165, "Wok-fried veggie canton with a savoury finish.", "stirNoodles", ["R ₱165"]],
+  ["Healthy Veggy Noodles", "Canton Stir Fry", 165, "Wok-fried veggie canton with a savoury finish.", "cantonStirFry", ["R ₱165"]],
   ["Healthy Veggy Noodles", "Batil Patong", 170, "Veggie-noodle batil patong with egg and crispy toppings.", "noodles", ["R ₱170", "S ₱245", "P ₱460"]],
 
-  ["Veggie Canton Packs", "Malunggay Veggie Canton (150g)", 50, "Malunggay-infused canton noodles, ready to cook.", "pack"],
-  ["Veggie Canton Packs", "Spinach Veggie Canton (150g)", 50, "Spinach canton noodles for a greener plate.", "pack"],
-  ["Veggie Canton Packs", "Carrot Veggie Canton (150g)", 50, "Bright carrot canton noodles the kids will eat.", "pack"],
+  ["Veggie Canton Packs", "Malunggay Veggie Canton (150g)", 50, "Malunggay-infused canton noodles, ready to cook.", "malunggayVeggieCanton"],
+  ["Veggie Canton Packs", "Spinach Veggie Canton (150g)", 50, "Spinach canton noodles for a greener plate.", "spinachVeggieCanton"],
+  ["Veggie Canton Packs", "Carrot Veggie Canton (150g)", 50, "Bright carrot canton noodles the kids will eat.", "carrotVeggieCanton"],
   ["Veggie Canton Packs", "Squash Veggie Canton (150g)", 50, "Golden squash canton noodles.", "pack"],
-  ["Veggie Canton Packs", "Saluyot Veggie Canton (150g)", 50, "Saluyot canton noodles, an Ilocano favourite.", "pack"],
-  ["Veggie Canton Packs", "Soybeans Veggie Canton (150g)", 50, "Protein-rich soybean canton noodles.", "pack"],
+  ["Veggie Canton Packs", "Saluyot Veggie Canton (150g)", 50, "Saluyot canton noodles, an Ilocano favourite.", "saluyotVeggieCanton"],
+  ["Veggie Canton Packs", "Soybeans Veggie Canton (150g)", 50, "Protein-rich soybean canton noodles.", "soybeansVeggieCanton"],
   ["Veggie Canton Packs", "Mix 6-in-1 Pack (240g)", 180, "All six veggie flavours in one 240g pack.", "pack"],
 
   ["Pasta & Extra Rice", "Spaghetti", 120, "Sweet-style Filipino spaghetti loaded with cheese.", "pasta"],
@@ -190,7 +198,7 @@ const menu = [
   ["Drinks & Refreshment", "Carrot Juice Lemonade (16 oz)", 75, "Carrot and lemon, surprisingly refreshing.", "drinks"],
   ["Drinks & Refreshment", "Yakult Lemonade (16 oz)", 70, "Tangy Yakult lemonade.", "drinks"],
   ["Drinks & Refreshment", "Fruit Soda (16 oz)", 49, "Green apple, blueberry, lychee or strawberry.", "drinks"],
-  ["Drinks & Refreshment", "Soy Milk", 35, "Fresh soy milk.", "drinks"],
+  ["Drinks & Refreshment", "Soy Milk", 35, "Fresh soy milk.", "freshSoyMilk"],
   ["Drinks & Refreshment", "Buko Juice", 30, "Chilled buko juice.", "drinks"],
   ["Drinks & Refreshment", "Softdrinks (8 oz)", 15, "Coke, Royal, Sprite or Pepsi.", "drinks"],
   ["Drinks & Refreshment", "Softdrinks 1 Litre", 50, "1 litre for sharing.", "drinks"],
